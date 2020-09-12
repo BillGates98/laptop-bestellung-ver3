@@ -1,0 +1,17 @@
+<div class="form-group">
+  <div class="form-group">
+    <ul class="tasks">
+      <li *ngFor="let task of tasks">
+        <p><a routerLink="/tasklist/{{task.id}}">{{task.name}}</a></p>
+      </li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <div *ngIf="taskId">
+      <generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
+    </div>
+    <div *ngIf="!taskId">
+      <p>Please select task.</p>
+    </div>
+  </div>
+</div>
