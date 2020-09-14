@@ -1,0 +1,61 @@
+<div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+        <div class="h-100 bg-plum-plate bg-animation">
+            <div class="d-flex h-100 justify-content-center align-items-center">
+                <div class="mx-auto app-login-box col-md-8">
+                    <div class="app-logo-inverse mx-auto mb-3"></div>
+                    <div class="modal-dialog w-100 mx-auto">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="h5 modal-title text-center">
+                                    <h4 class="mt-2">
+                                        <div>Willkommen zurück,</div>
+                                        <span>Bitte melden Sie sich unten bei Ihrem Konto an.</span>
+                                    </h4>
+                                </div>
+                                <form  [formGroup]="loginForm" (submit)="login()">
+                                    <div class="form-row">
+                                        <div class="col-md-12" *ngIf="error.type == 'REQUIRED'">
+                                            <em class="{{ error.class }}">Bitte geben Sie Ihren Vornamen ein</em>
+                                        </div>
+                                        <div class="col-md-12" *ngIf="error.type == 'UNAUTHORIZE'">
+                                            <em class="{{ error.class }}">Unautorisierter Zugriff</em>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <input name="username"
+                                                    formControlName="username"
+                                                    id="username" placeholder="Benutzername hier..." type="text"
+                                                    class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="position-relative form-group">
+                                                <input name="password"
+                                                    formControlName="password"
+                                                    id="examplePassword" placeholder="Passwort hier..." type="password"
+                                                    class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="float-right">
+                                                <button class="btn btn-primary">Login</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- <div class="divider"></div>
+                                <h6 class="mb-0">No account? <a href="javascript:void(0);" class="text-primary">Sign up
+                                        now</a></h6> -->
+                            </div>
+                            <div class="modal-footer clearfix">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center text-white opacity-8 mt-3">Copyright © KeroUI 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

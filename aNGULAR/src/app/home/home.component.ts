@@ -12,23 +12,25 @@ import { CamundaRestService } from '../camunda-rest.service';
 })
 export class HomeComponent implements OnInit {
   private fileToUpload: File = null;
-  public SUCCESS: boolean = false;
+  public SUCCESS = false;
+  title = 'Hello';
 
   constructor(private camundaRestService: CamundaRestService) { }
 
   ngOnInit() {
+
   }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    this.uploadFileToActivity();
-  }
+  // handleFileInput(files: FileList) {
+  //   this.fileToUpload = files.item(0);
+  //   this.uploadFileToActivity();
+  // }
 
-  uploadFileToActivity() {
-    this.camundaRestService.deployProcess(this.fileToUpload).subscribe(data => {
-      this.SUCCESS = true;
-      }, error => {
-        console.log(error);
-    });
-  }
+  // uploadFileToActivity() {
+  //   this.camundaRestService.deployProcess(this.fileToUpload).subscribe(data => {
+  //     this.SUCCESS = true;
+  //     }, error => {
+  //       console.log(error);
+  //   });
+  // }
 }

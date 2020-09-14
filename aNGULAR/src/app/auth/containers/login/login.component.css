@@ -1,0 +1,12 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.error-css {
+  color: rgb(255, 51, 102);
+}
+
+.app-container {
+  height: 700px !important;
+  min-height: none !important;
+}
