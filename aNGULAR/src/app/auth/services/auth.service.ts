@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(user: { username: string, password: string }, callBackError): Observable<boolean> {
+  login(user: { username: string, password: string }): Observable<boolean> {
     console.log( `${environment.apiUrl}/camunda/api/admin/auth/user/default/login/welcome` );
     const body = new HttpParams()
     .set('username', user.username)

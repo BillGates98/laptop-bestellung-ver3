@@ -9,7 +9,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
   error = {
     message: '',
@@ -18,25 +17,34 @@ export class LoginComponent implements OnInit {
     type: ''
   };
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
   }
 
-  initForm() {
+  initForm(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  get f() { return this.loginForm.controls; }
+  get f(): any {
+    return this.loginForm.controls;
+  }
 
-  login() {
-    console.log( this.f );
+  login(): void {
+    console.log(this.f);
     console.log('Message');
-    if (!(this.f.username.status === 'VALID') && !(this.f.password.status === 'VALID') ) {
+    if (
+      !(this.f.username.status === 'VALID') &&
+      !(this.f.password.status === 'VALID')
+    ) {
       this.error = {
         message: 'Alle Felder müssen ausgefüllt werden',
         isError: true,
@@ -49,25 +57,24 @@ export class LoginComponent implements OnInit {
     this.authService.login({
         username: this.f.username.value,
         password: this.f.password.value
-    })
-    .subscribe(success => {
-      if (success) {
-        this.initForm();
-        this.router.navigate(['/home']);
-      } else {
-        this.initForm();
-        this.error = {
-          message: 'Accès non authorisé',
-          isError: true,
-          class: 'error-css',
-          type: 'UNAUTHORIZE'
-        };
-      }
-    });
+      })
+      .subscribe(success => {
+        if (success) {
+          this.initForm();
+          this.router.navigate(['/home']);
+        } else {
+          this.initForm();
+          this.error = {
+            message: 'Accès non authorisé',
+            isError: true,
+            class: 'error-css',
+            type: 'UNAUTHORIZE'
+          };
+        }
+      });
   }
 
-  openDashboard() {
+  openDashboard(): void {
     this.router.navigate(['/home']);
   }
-
 }
