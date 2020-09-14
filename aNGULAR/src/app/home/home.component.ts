@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpRequest, HttpEvent } from '@angular/common/http';
-import { Observable } from "rxjs";
-
 import { CamundaRestService } from '../camunda-rest.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +12,10 @@ export class HomeComponent implements OnInit {
   public SUCCESS = false;
   title = 'Hello';
 
-  constructor(private camundaRestService: CamundaRestService) { }
+  constructor(private camundaRestService: CamundaRestService, private router: Router) { }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    this.router.navigate(['/home/admin']);
   }
 
   // handleFileInput(files: FileList) {

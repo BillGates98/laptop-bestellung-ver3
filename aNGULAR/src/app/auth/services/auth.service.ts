@@ -49,10 +49,13 @@ export class AuthService {
   private storeTokens(token: string) {
     localStorage.setItem(this.TOKEN, token);
   }
-
  
   public getUserInfos() {
     return JSON.parse(localStorage.getItem(this.USER_INFOS));
+  }
+
+  public getTokens() {
+    return JSON.parse(localStorage.getItem(this.TOKEN));
   }
 
   public storeUserInfos(user: any) {
