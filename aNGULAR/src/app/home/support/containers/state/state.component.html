@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      
+      <div *ngFor="let data of datas">
+        <span>Demande : {{ data.name }}</span>
+        <a routerLink="/home/support/installation" role="tab" data-toggle="tab" class="nav-link active">
+          <span>installation</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>

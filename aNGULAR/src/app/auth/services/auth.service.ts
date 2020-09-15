@@ -61,4 +61,9 @@ export class AuthService {
   public storeUserInfos(user: any) {
     localStorage.setItem(this.USER_INFOS, JSON.stringify(user));
   }
+
+  public logout(): boolean {
+    localStorage.removeItem(this.TOKEN);
+    return true;
+  }
 }

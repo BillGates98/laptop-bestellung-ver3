@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="">
+        <button class="btn btn-primary" (click)="goBack()">
+          Retour
+        </button>
+      </div>
+      <h3>Installation</h3>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+      <form [formGroup]="confirmForm" (submit)="submit()">
+          <div class="form-row">
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <input name="username" formControlName="username" id="username" placeholder="Benutzername hier..."
+                  type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <input name="email" formControlName="email" id="email" placeholder="email" type="email"
+                  class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <input name="Bestellgrund" formControlName="Bestellgrund" id="Bestellgrund"
+                  placeholder="Bestellgrund hier..." type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <input name="Preis" formControlName="Preis" id="Preis" placeholder="Preis hier..."
+                  type="number" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <input name="Bestellreferenz" formControlName="Bestellreferenz" id="Bestellreferenz"
+                  placeholder="Bestellreferenz hier..." type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="position-relative form-group">
+                <textarea name="software" formControlName="software" id="software" placeholder="software hier..." type="text"
+                  class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="float-right">
+                <button class="btn btn-primary">Soumettre</button>
+              </div>
+            </div>
+          </div>
+        </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
