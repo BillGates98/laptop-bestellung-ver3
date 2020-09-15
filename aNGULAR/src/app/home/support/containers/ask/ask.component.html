@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form [formGroup]="askForm" (submit)="submit()">
+      <div class="form-row">
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <input name="FirstName" formControlName="FirstName" id="FirstName" placeholder="FirstName hier..."
+              type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <input name="LastName" formControlName="LastName" id="LastName" placeholder="LastName" type="text"
+              class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <input name="Begrundung" formControlName="Begrundung" id="Begrundung" placeholder="Begrundung hier..."
+              type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <label>Gerätetyp</label>
+            <select formControlName="Geratetyp" class="form-control">
+              <option value="Laptop">Laptop</option>
+              <option value="Drucker">Drucker</option>
+              <option value="Bildschirm">Bildschirm</option>
+              <option value="Maus">Maus</option>
+              <option value="Tastatur">Tastatur</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="position-relative form-group">
+            <input name="Benutzername" formControlName="Benutzername" id="Benutzername"
+              placeholder="Benutzername hier..." type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="float-right">
+            <button class="btn btn-primary">Soumettre</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>

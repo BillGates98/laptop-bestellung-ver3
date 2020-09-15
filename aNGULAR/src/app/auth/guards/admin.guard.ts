@@ -19,6 +19,8 @@ export class AdminGuard implements CanActivate, CanLoad {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
     }
-    return this.authService.isLoggedIn();
+    const token = this.authService.getToken().userId;
+    // return token === 'ITGruppe' && this.authService.isLoggedIn() ? true : false;
+    return true;
   }
 }

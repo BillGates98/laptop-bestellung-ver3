@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-index',
+  selector: 'app-admin-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
@@ -23,6 +23,6 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.authService.getToken());
     this.isAuthenticated = this.authService.getToken() ? true : false;
-    // this.router.navigate(['/home/admin']);
+    this.router.navigate(['/home/admin/state']);
   }
 }

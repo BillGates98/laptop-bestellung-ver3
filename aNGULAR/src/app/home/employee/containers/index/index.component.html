@@ -1,3 +1,23 @@
-<div>Espace employee</div>
-<router-outlet></router-outlet>
+<div class="app-inner-bar">
+    
+    <div class="inner-bar-center">
+      <ul class="nav">
+        <li class="nav-item">
+          <a routerLink="/home/employee/ask" role="tab" data-toggle="tab" class="nav-link active">
+            <span>Demandes</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/home/employee/state"  role="tab" data-toggle="tab" class="nav-link">
+            <span>Etats</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="inner-bar-right">
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
  
