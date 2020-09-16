@@ -18,7 +18,7 @@ export class EmployeeGuard implements CanActivate, CanLoad {
     if (!this.authService.isLoggedIn()) {
      this.router.navigate(['/login']);
     }
-    const token = this.authService.getToken().userId;
-    return token === 'Mitarbeiter' && this.authService.isLoggedIn() ? true : false;
+    const token = this.authService.getToken().rollen.length > 0;
+    return token && this.authService.isLoggedIn() ? true : false;
   }
 }

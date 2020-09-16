@@ -2,12 +2,12 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <div *ngFor="let data of datas">
-        <div class="">
+        <div class="row">
           Donnée : 
         </div>
-        <div>
-          <input type="checkbox" name="choice" value="Confirmer ?"/>
-          <input type="button" value="valider"/>
+        <div class="row">
+          <input type="checkbox" name="choice" (change)="value($event)"/>
+          <input type="button" value="valider" (click)="submit(data)"/>
         </div>
       </div>
     </div>

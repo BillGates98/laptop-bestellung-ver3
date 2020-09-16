@@ -7,13 +7,14 @@ import { SuiModule } from 'ng2-semantic-ui';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CamundaRestService } from './camunda-rest.service';
 import { LoginComponent } from './auth/containers/login/login.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
+    CommonModule,
     // SuiModule,
     BrowserModule,
     FormsModule,
@@ -21,7 +22,7 @@ import { LoginComponent } from './auth/containers/login/login.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [CamundaRestService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,16 +24,38 @@ export class AskComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = this.authService.getToken();
+    console.log(this.token);
     this.initForm();
-    this.getTaskId();
   }
 
   initForm(): void {
+
     this.askForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      Begrundung: ['', Validators.required],
-      Geratetyp: ['', Validators.required],
-      Benutzername: ['', Validators.required],
+        // 1
+        email: [this.token.email, Validators.required],
+        begrundung: ['', Validators.required],
+        gerateTyp0: ['', Validators.required],
+        benutzerName: ['', Validators.required],
+
+        id: [''],
+        versanddatumExp: [''],
+        hilfe: [''],
+        buchhaltungExp: [''],
+        vorNameVort: [''],
+        nachNameVort: [''],
+        rollenVort: [''],
+        datumVort: [''],
+        gerateTyp1Vort: [''],
+        kostenstelleVort: [''],
+        preisVort: [''],
+        freigabeVort: [''],
+        usernameIt: [''],
+        emailIt: [''],
+        bestellgrundIt: [''],
+        preisIt: [''],
+        bestellreferenzIt: [''],
+        rechnungMitKostenstelleIt: [''],
+        abgabeBuchIt: ['']
     });
   }
 
@@ -41,26 +63,8 @@ export class AskComponent implements OnInit {
     return this.askForm.controls;
   }
 
-  getTaskId(): void {
-    this.dataService.getTaskIdentification().then(data => {
-      console.log(data);
-      this.extractTaskId(data, this.token.userId);
-    }).catch(error => {
-      console.log(error);
-    });
-  }
-
-  extractTaskId(data, userId): void {
-    for (const task of data) {
-      if (task.assignee === userId) {
-        this.taskId = task.id;
-      }
-    }
-    this.taskId = -1;
-  }
-
   isValidForm(form): boolean {
-    const fields = ['Benutzername', 'email', 'Begrundung', 'Geratetyp'];
+    const fields = ['benutzerName', 'email', 'begrundung', 'gerateTyp0'];
     for (const f of fields) {
       if (form[f].status === 'INVALID') {
         return false;
@@ -68,21 +72,27 @@ export class AskComponent implements OnInit {
     }
     return true;
   }
+
+  buildData(form): any {
+    const object = {};
+    for (const k in form) {
+      if (k) {
+        object[k] = form[k].value;
+      }
+    }
+    return object;
+  }
+
   submit(): void {
     // console.log(this.f);
     if ( !this.isValidForm(this.f) ) {
       alert('Veuillez remplir tout les champs');
       return;
     }
-
-    this.dataService.post({
-        Benutzername: this.f.Benutzername.value,
-        email: this.f.email.value,
-        Geratetyp: this.f.Geratetyp.value,
-        Begrundung: this.f.Begrundung.value,
-      }, this.taskId)
+    this.dataService.post(this.buildData(this.f))
       .then(success => {
           alert('Envoyer');
+          this.initForm();
           console.log(success);
       }).catch(error => {
           alert('Une erreur est survenue');

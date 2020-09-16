@@ -26,7 +26,7 @@ public  class Kunde
 	private String GerateTyp1Vort;
 	private String KostenstelleVort;
 	private String PreisVort;
-	private String FreigabeVort;
+	private boolean FreigabeVort;
 	
 	// 3
 	private String UsernameIt;
@@ -55,7 +55,7 @@ public  class Kunde
 
 	public Kunde(Long id, String benutzerName, String email, String gerateTyp0, String begrundung, String vorNameVort,
 			String nachNameVort, String rollenVort, String datumVort, String gerateTyp1Vort, String kostenstelleVort,
-			String preisVort, String freigabeVort, String usernameIt, String emailIt, String bestellgrundIt,
+			String preisVort, boolean freigabeVort, String usernameIt, String emailIt, String bestellgrundIt,
 			String preisIt, String bestellreferenzIt, String rechnungMitKostenstelleIt, String abgabeBuchIt,
 			String versanddatumExp, Long buchhaltungExp, boolean hilfe) {
 		super();
@@ -205,12 +205,12 @@ public  class Kunde
 	}
 
 
-	public String getFreigabeVort() {
+	public boolean getFreigabeVort() {
 		return FreigabeVort;
 	}
 
 
-	public void setFreigabeVort(String freigabeVort) {
+	public void setFreigabeVort(boolean freigabeVort) {
 		FreigabeVort = freigabeVort;
 	}
 

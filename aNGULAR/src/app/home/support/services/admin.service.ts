@@ -10,40 +10,10 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   async post(data): Promise<any> {
-    console.log(data);
-    // const body = new HttpParams()
-    // .set('username', user.username)
-    // .set('password', user.password);
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/x-www-form-urlencoded'
-    // });
-    // return this.http.post<any>(`${environment.apiUrl}/camunda/api/admin/auth/user/default/login/welcome`, body.toString(),
-    //   {headers: headers})
-    //   .pipe(
-    //     tap(tokens => this.doLoginUser(user.username, tokens)),
-    //     mapTo(true),
-    //     catchError(error => {
-    //       return of(false);
-    //     }));
     return await this.http.post(`${environment.apiUrl}/users`, data).toPromise();
   }
 
   async put(data): Promise<any> {
-    console.log(data);
-    // const body = new HttpParams()
-    // .set('username', user.username)
-    // .set('password', user.password);
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/x-www-form-urlencoded'
-    // });
-    // return this.http.post<any>(`${environment.apiUrl}/camunda/api/admin/auth/user/default/login/welcome`, body.toString(),
-    //   {headers: headers})
-    //   .pipe(
-    //     tap(tokens => this.doLoginUser(user.username, tokens)),
-    //     mapTo(true),
-    //     catchError(error => {
-    //       return of(false);
-    //     }));
     return await this.http.put(`${environment.apiUrl}/users`, data).toPromise();
   }
 

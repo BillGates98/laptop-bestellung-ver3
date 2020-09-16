@@ -16,15 +16,8 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(user: { username: string, password: string }): Observable<boolean> {
-    console.log( `${environment.apiUrl}/camunda/api/admin/auth/user/default/login/welcome` );
-    const body = new HttpParams()
-    .set('username', user.username)
-    .set('password', user.password);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-    return this.http.post<any>(`${environment.apiUrl}/camunda/api/admin/auth/user/default/login/welcome`, body.toString(), 
-      {headers: headers})
+    console.log(user, 'lol');
+    return this.http.post<any>(`${environment.apiUrl}/service/auth`, user)
       .pipe(
         tap(tokens => this.doLoginUser(user.username, tokens)),
         mapTo(true),
@@ -33,32 +26,36 @@ export class AuthService {
         }));
   }
 
-  isLoggedIn() {
+  isLoggedIn(): any {
     return !!this.getToken();
   }
 
-  getToken() {
+  getToken(): any {
     return JSON.parse(localStorage.getItem(this.TOKEN));
   }
 
-  private doLoginUser(login: string, tokens: any) {
+  private doLoginUser(login: string, tokens: any): any {
     console.log(tokens);
+    if (tokens == null) {
+      alert('Mauvais identifiant');
+      return;
+    }
     this.storeTokens(JSON.stringify(tokens));
   }
 
-  private storeTokens(token: string) {
+  private storeTokens(token: string): any {
     localStorage.setItem(this.TOKEN, token);
   }
  
-  public getUserInfos() {
+  public getUserInfos(): any {
     return JSON.parse(localStorage.getItem(this.USER_INFOS));
   }
 
-  public getTokens() {
+  public getTokens(): any {
     return JSON.parse(localStorage.getItem(this.TOKEN));
   }
 
-  public storeUserInfos(user: any) {
+  public storeUserInfos(user: any): any {
     localStorage.setItem(this.USER_INFOS, JSON.stringify(user));
   }
 

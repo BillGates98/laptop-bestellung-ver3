@@ -4,7 +4,7 @@
     <form [formGroup]="askForm" (submit)="submit()">
       <div class="col-md-12">
         <div class="position-relative form-group">
-          <input name="Benutzername" formControlName="Benutzername" id="Benutzername" placeholder="Benutzername hier..."
+          <input name="Benutzername" formControlName="benutzerName" id="Benutzername" placeholder="Benutzername hier..."
             type="text" class="form-control" />
         </div>
       </div>
@@ -17,20 +17,21 @@
       <div class="col-md-12">
         <div class="position-relative form-group">
           <label>Gerätetyp</label>
-          <select formControlName="Geratetyp" class="form-control">
+          <select formControlName="gerateTyp0" class="form-control">
+            <option value=""></option>
             <option value="Laptop">Laptop</option>
-            <option value="Drucker">Drucker</option>
+            <!-- <option value="Drucker">Drucker</option>
             <option value="Bildschirm">Bildschirm</option>
             <option value="Maus">Maus</option>
-            <option value="Tastatur">Tastatur</option>
+            <option value="Tastatur">Tastatur</option> -->
           </select>
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-12">
           <div class="position-relative form-group">
-            <input name="Begrundung" formControlName="Begrundung" id="Begrundung" placeholder="Begrundung hier..."
-              type="text" class="form-control" />
+            <textarea name="Begrundung" formControlName="begrundung" id="Begrundung" placeholder="Begrundung hier..."
+              type="text" class="form-control"></textarea>
           </div>
         </div>
         <div class="col-md-12" *ngIf="isValidForm(f)">
