@@ -9,8 +9,8 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) {}
 
-  async post(data): Promise<any> {
-    console.log(data);
+  async post(data, taskId): Promise<any> {
+    console.log('Ready to send', taskId, ' ===== ', data);
     // const body = new HttpParams()
     // .set('username', user.username)
     // .set('password', user.password);
@@ -25,7 +25,11 @@ export class EmployeeService {
     //     catchError(error => {
     //       return of(false);
     //     }));
-    return await this.http.post(`${environment.apiUrl}/users`, data).toPromise();
+    return await this.http.post(`${environment.apiUrl}/camunda/api/engine/engine/default/task/${taskId}/submit-form`, data).toPromise();
+  }
+
+  async getTaskIdentification(): Promise<any> {
+    return await this.http.get(`${environment.apiUrl}/camunda/api/engine/engine/default/task`).toPromise();
   }
 
   async put(data): Promise<any> {
