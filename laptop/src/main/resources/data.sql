@@ -1,8 +1,13 @@
-INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password)VALUES (1, 'johnie','profi.testemail@gmail.com','John','Smith','Michael','Developer', 'demo');
-INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password)VALUES (2,'michael','profi.testemail@gmail.com','Michael','Rock','Stefan','Analyst', 'demo');
-INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password)VALUES (3,'lars','profi.testemail@gmail.com','Lars','Becks','Michael','Developer', 'demo');
-INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password)VALUES (4,'paul','profi.testemail@gmail.com','Paul','Smith','Frank','Intern', 'demo');
-INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password) VALUES (5, 'jenni','profi.testemail@gmail.com','Jenni','Smith','Matthias','Verkaufer', 'demo');
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid) VALUES (1, 'Mitarbeiter','profi1.testemail@gmail.com','Mitarbeiter','Mit',null,'Mitarbeiter', 'demo', null);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid) VALUES (2, 'Vorgesetzt','profi2.testemail@gmail.com','Vorgesetzt','Smith',null,'Vorgesetzt', 'demo', null);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid) VALUES (3, 'Support','profi3.testemail@gmail.com','Support','Support',null,'Support', 'demo', null);
+
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid)VALUES (4, 'johnie','profi4.testemail@gmail.com','John','Smith','Michael','Developer', 'demo', 2);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid)VALUES (5,'michael','profi5.testemail@gmail.com','Michael','Rock','Stefan','Analyst', 'demo', 2);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid)VALUES (6,'lars','profi6.testemail@gmail.com','Lars','Becks','Michael','Developer', 'demo', 2);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid)VALUES (7,'paul','profi7.testemail@gmail.com','Paul','Smith','Frank','Intern', 'demo', 2);
+INSERT INTO Mitarbeiter (id, username,email,vorname,nachname,vorgesetzer,rollen, password, parentid) VALUES (8, 'jenni','profi8.testemail@gmail.com','Jenni','Smith','Matthias','Verkaufer', 'demo', 2);
+
 
 INSERT INTO Laptop VALUES (1,'ThinkPad E490',500);
 INSERT INTO Laptop VALUES (2,'ThinkPad E590',350);

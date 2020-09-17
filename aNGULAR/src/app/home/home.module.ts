@@ -7,11 +7,13 @@ import { SuiModule } from 'ng2-semantic-ui';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
+    CommonModule,
     FormsModule,
     SuiModule,
     HomeRoutingModule,

@@ -53,4 +53,10 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return this.MitarbeiterRepository.auth(username, password);
 	}
 
+	@Override
+	public List<Mitarbeiter> findByParentid(Long parentid) {
+		// TODO Auto-generated method stub
+		return this.MitarbeiterRepository.findByParentId(parentid);
+	}
+
 }

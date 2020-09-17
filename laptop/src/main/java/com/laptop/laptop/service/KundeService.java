@@ -11,4 +11,5 @@ public interface KundeService {
 	void delete(Kunde kunde);
 	Optional<Kunde> getById(Long id);
 	List<Kunde> findAll();
+	List<Kunde> findKundeByEmail(String email);
 }

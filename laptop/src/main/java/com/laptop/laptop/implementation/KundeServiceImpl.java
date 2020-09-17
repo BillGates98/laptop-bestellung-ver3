@@ -47,4 +47,10 @@ public class KundeServiceImpl implements KundeService {
 		return this.KundeRepository.findById(id);
 	}
 
+	@Override
+	public List<Kunde> findKundeByEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.KundeRepository.findKundeByEmail(email);
+	}
+
 }

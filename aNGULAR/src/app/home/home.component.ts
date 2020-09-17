@@ -15,14 +15,12 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    const route = {
-      ITGruppe : 'admin',
-      Mitarbeiter: 'employee', // 'employee',
-      demo: 'support'
-    };
-
-    if (this.authService.getToken().rollen.length > 0) {
+    if (this.authService.getToken().parentid === 2) {
       this.router.navigate(['/home/employee']);
+    } else if (this.authService.getToken().rollen === 'Vorgesetzt') {
+      this.router.navigate(['/home/admin']);
+    } else {
+      this.router.navigate(['/home/support']);
     }
   }
 

@@ -18,8 +18,7 @@ export class SupportGuard implements CanActivate, CanLoad {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
     }
-    const token = this.authService.getToken().userId;
-    // return token === 'demo' && this.authService.isLoggedIn() ? true : false;
-    return true;
+    const token = this.authService.getToken().username === 'Support';
+    return token && this.authService.isLoggedIn() ? true : false;
   }
 }

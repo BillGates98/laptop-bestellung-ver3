@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public  class Mitarbeiter  
 { 
-	//Attributes
+	// Attributes
 	// Mitarbeiter : 1 
 	@Id
 	@GeneratedValue
@@ -20,6 +20,7 @@ public  class Mitarbeiter
 	private String vorgesetzer;
 	private String rollen;
 	private String password;
+	private Long parentid;
 	
 	public Mitarbeiter() {
 		super();
@@ -27,7 +28,7 @@ public  class Mitarbeiter
 	}
 
 	public Mitarbeiter(Long id, String username, String email, String vorname, String nachname, String vorgesetzer,
-			String rollen, String password) {
+			String rollen, String password, Long parentid) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -37,6 +38,7 @@ public  class Mitarbeiter
 		this.vorgesetzer = vorgesetzer;
 		this.rollen = rollen;
 		this.password = password;
+		this.parentid = parentid;
 	}
 
 	public Long getId() {
@@ -101,6 +103,14 @@ public  class Mitarbeiter
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Long getParentid() {
+		return parentid;
+	}
+
+	public void setParentid(Long parentid) {
+		this.parentid = parentid;
 	}
 
 } //End Class Projet

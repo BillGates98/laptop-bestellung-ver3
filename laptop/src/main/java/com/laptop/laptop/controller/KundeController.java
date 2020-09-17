@@ -1,5 +1,6 @@
 package com.laptop.laptop.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.laptop.laptop.model.Kunde;
+import com.laptop.laptop.model.Mitarbeiter;
 import com.laptop.laptop.service.KundeService;
+import com.laptop.laptop.service.MitarbeiterService;
 
 import contrat.SendMail;
 
@@ -34,13 +37,15 @@ import contrat.SendMail;
 public class KundeController {
     	
 	KundeService kundeService;
+	MitarbeiterService mitArbeiterService;
 	
 	@Autowired
 	private Environment env;
 	
-	KundeController(KundeService kundeService, Environment env) {
+	KundeController(KundeService kundeService, Environment env, MitarbeiterService mitArbeiterService) {
 		this.kundeService = kundeService;
 		this.env = env;
+		this.mitArbeiterService = mitArbeiterService;
 	}
 	
 	@PostMapping(value = "/service/kunde")
@@ -71,6 +76,21 @@ public class KundeController {
 	 @GetMapping(value = "/service/kunde")
 	 public List<Kunde> all(){
 	  	return this.kundeService.findAll();
+	 }
+	 
+	 @GetMapping(value = "/service/kunde/{email}/search")
+	 public List<Kunde> getKundeMitarbeiter(@PathVariable("email") String email){
+	  	return this.kundeService.findKundeByEmail(email);
+	 }
+	 
+	 @GetMapping(value = "/service/kunde/{parentId}/children")
+	 public List<Kunde> getKundeChildren(@PathVariable("parentId") Long parentId){
+	  	ArrayList<Kunde> kundes = new ArrayList<Kunde>();
+	  	List<Mitarbeiter> mitArbeiters = this.mitArbeiterService.findByParentid(parentId);
+	  	for (Mitarbeiter mit: mitArbeiters) {
+	  		kundes.addAll(this.kundeService.findKundeByEmail(mit.getEmail()));
+	  	} 
+		return kundes;
 	 }
 	 
 	 @PostMapping(value="/service/send-mail")

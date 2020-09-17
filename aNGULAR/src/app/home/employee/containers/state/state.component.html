@@ -1,9 +1,19 @@
 <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div *ngFor="let data of datas">
-        <span>Demande : {{ data.benutzerName }}</span>
-      </div>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="container" *ngFor="let data of datas">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            Demande : {{ data.begrundung }}
+          </div>
+          <button class="btn btn-danger float-right" *ngIf="!data.freigabeVort">Freigabe</button>
+          <button class="btn btn-success float-right" *ngIf="data.freigabeVort">Freigabe</button>
+          <button class="btn btn-danger float-right" *ngIf="!data.hilfe">Hilfe</button>
+          <button class="btn btn-success float-right" *ngIf="data.hilfe">Hilfe</button>
+        </div>
+      </div><br/><br/>
     </div>
-    <div class="col-md-4"></div>
   </div>
+  <div class="col-md-4"></div>
+</div>

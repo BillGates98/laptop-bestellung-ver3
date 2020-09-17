@@ -11,6 +11,6 @@ public interface MitarbeiterService {
 	void delete(Mitarbeiter data);
 	Optional<Mitarbeiter> getById(Long id);
 	List<Mitarbeiter> findAll();
-	
+	List<Mitarbeiter> findByParentid(Long parentid);
 	Mitarbeiter auth(String username, String password);
 }
