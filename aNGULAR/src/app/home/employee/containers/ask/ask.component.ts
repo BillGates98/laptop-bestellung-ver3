@@ -78,10 +78,10 @@ export class AskComponent implements OnInit {
     for (const k in form) {
       if (k) {
         object[k] = form[k].value;
+        if (k === 'freigabeVort' && form.gerateTyp0 === 'Assistance') {
+          object[k] = true;
+        }
       }
-    }
-    if (form.gerateTyp0 === 'Assistance') {
-      object.freigabeVort = true;
     }
     return object;
   }
