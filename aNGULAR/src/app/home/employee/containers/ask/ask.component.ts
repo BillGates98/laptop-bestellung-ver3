@@ -35,15 +35,15 @@ export class AskComponent implements OnInit {
         email: [this.token.email, Validators.required],
         begrundung: ['', Validators.required],
         gerateTyp0: ['', Validators.required],
-        benutzerName: ['', Validators.required],
+        benutzerName: [this.token.username, Validators.required],
 
         id: [''],
         versanddatumExp: [''],
         hilfe: [''],
         buchhaltungExp: [''],
-        vorNameVort: [''],
-        nachNameVort: [''],
-        rollenVort: [''],
+        vorNameVort: [this.token.vorname],
+        nachNameVort: [this.token.nachname],
+        rollenVort: [this.token.rollen],
         datumVort: [''],
         gerateTyp1Vort: [''],
         kostenstelleVort: [''],
@@ -64,6 +64,7 @@ export class AskComponent implements OnInit {
   }
 
   isValidForm(form): boolean {
+    console.log(form);
     const fields = ['benutzerName', 'email', 'bestellgrundIt', 'gerateTyp0'];
     for (const f of fields) {
       if (form[f].status === 'INVALID') {
@@ -78,7 +79,7 @@ export class AskComponent implements OnInit {
     for (const k in form) {
       if (k) {
         object[k] = form[k].value;
-        if (k === 'freigabeVort' && form.gerateTyp0 === 'Assistance') {
+        if (k === 'freigabeVort' && form.gerateTyp0.value === 'Assistance') {
           object[k] = true;
         }
       }

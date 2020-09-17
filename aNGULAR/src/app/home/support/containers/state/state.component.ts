@@ -136,6 +136,7 @@ export class StateComponent implements OnInit {
 
   fetchKundes(): void {
     this.dataService.gets().then(data => {
+      console.log(data);
       this.datas = data.reverse();
     }).catch(error => {
       alert('Error');
