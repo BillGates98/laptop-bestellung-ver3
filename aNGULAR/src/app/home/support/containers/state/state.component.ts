@@ -19,8 +19,7 @@ export class StateComponent implements OnInit {
   askForm: FormGroup;
   token = null;
   active = null;
-  fields = ['id', 'usernameIt', 'emailIt', 'bestellgrundIt',
-            'preisIt', 'bestellreferenzIt', 'rechnungMitKostenstelleIt',
+  fields = ['id', 'bestellreferenzIt', 'rechnungMitKostenstelleIt',
             'abgabeBuchIt', 'braucheHilfe', 'versanddatumExp',
             'buchhaltungExp', 'hilfe'];
 
@@ -110,6 +109,12 @@ export class StateComponent implements OnInit {
       alert('Formulaire invalide!');
       return;
     }
+
+    if (!this.active) {
+      alert('Selectionnez une demande');
+      return;
+    }
+
     this.dataService.put(this.active.id, this.buildData(this.f))
       .then(success => {
         alert('Updated');

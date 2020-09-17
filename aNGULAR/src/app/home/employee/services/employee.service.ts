@@ -38,6 +38,10 @@ export class EmployeeService {
     return await this.http.get(`${environment.apiUrl}/service/Laptop`).toPromise();
   }
 
+  async getUserInfos(email): Promise<any> {
+    return await this.http.get(`${environment.apiUrl}/service/mitarbeiter/${email}`).toPromise();
+  }
+
   async sendMail(data): Promise<any> {
     return await this.http.post(`${environment.apiUrl}/service/send-mail`, data).toPromise();
   }

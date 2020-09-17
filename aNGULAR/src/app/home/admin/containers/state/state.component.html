@@ -22,14 +22,15 @@
       <div class="col-md-12">
         <div class="position-relative form-group">
           <label>Gerätetyp 1</label>
-          <select formControlName="gerateTyp1Vort" class="form-control">
+          <select formControlName="gerateTyp1Vort" class="form-control" (change)="setPrice($event)">
             <option value=""></option>
             <option *ngFor="let lp of laptops" value="{{ lp.name }}">{{ lp.name }}</option>
           </select>
         </div>
         <div class="col-md-12">
+          <label>Le prix</label>
           <div class="position-relative form-group">
-            <input name="preisVort" formControlName="preisVort" id="preisVort" placeholder="preis hier..." type="number"
+            <input disabled name="preisVort" formControlName="preisVort" id="preisVort" placeholder="preis hier..." type="text"
               class="form-control" />
           </div>
         </div>
@@ -50,11 +51,13 @@
   </div>
   <div class="col-md-4">
     <div *ngFor="let data of datas">
-      <div class="row">
-        Demande de reference {{ data.id }} : {{ data.benutzerName }}
-      </div>
-      <div class="row">
-        <input type="button" value="valider" (click)="edit(data)" />
+      <div *ngIf="data.gerateTyp0 != 'Assistance'">
+        <div class="row">
+          Demande de reference {{ data.id }} : {{ data.benutzerName }}
+        </div>
+        <div class="row">
+          <input type="button" value="valider" (click)="edit(data)" />
+        </div>
       </div>
     </div>
   </div>

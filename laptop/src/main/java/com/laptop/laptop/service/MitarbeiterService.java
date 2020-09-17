@@ -13,4 +13,5 @@ public interface MitarbeiterService {
 	List<Mitarbeiter> findAll();
 	List<Mitarbeiter> findByParentid(Long parentid);
 	Mitarbeiter auth(String username, String password);
+	Mitarbeiter getByEmail(String email);
 }

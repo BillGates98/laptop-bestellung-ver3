@@ -63,5 +63,11 @@ public class MitarbeiterController {
 	 public List<Mitarbeiter> all(){
 	  	return this.MitarbeiterService.findAll();
 	 }
+	 
+	 @GetMapping(value = "/service/mitarbeiter/{email}/infos")
+	 public Mitarbeiter completeInfos(@PathVariable("email") String email){
+		 Mitarbeiter user = this.MitarbeiterService.getByEmail(email);
+	  	return user;
+	 }
 
 }

@@ -9,25 +9,25 @@
       </div>
       <div class="col-md-12">
         <div class="position-relative form-group">
-          <input name="usernameIt" formControlName="usernameIt" id="usernameIt" placeholder="username hier..."
+          <input name="usernameIt" disabled formControlName="usernameIt" id="usernameIt" placeholder="username hier..."
             type="text" class="form-control" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="position-relative form-group">
-          <input name="emailIt" formControlName="emailIt" id="emailIt" placeholder="email hier..." type="email"
+          <input name="email" disabled formControlName="email" id="email" placeholder="email hier..." type="email"
             class="form-control" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="position-relative form-group">
-          <input name="bestellgrundIt" formControlName="bestellgrundIt" id="bestellgrundIt"
+          <input name="bestellgrundIt" disabled formControlName="bestellgrundIt" id="bestellgrundIt"
             placeholder="bestellgrund hier..." type="text" class="form-control" />
         </div>
       </div>
       <div class="col-md-12">
         <div class="position-relative form-group">
-          <input name="preisIt" formControlName="preisIt" id="preisIt" placeholder="preisIt hier..." type="number"
+          <input name="preisIt" disabled formControlName="preisVort" id="preisIt" placeholder="preisIt hier..." type="number"
             class="form-control" />
         </div>
       </div>
@@ -57,27 +57,11 @@
         </div>
       </div>
       <div class="col-md-12">
-        <div class="position-relative form-group">
-          <label>Brauche Hilfe in Was?</label>
-          <select formControlName="braucheHilfe" class="form-control">
-            <option value=""></option>
-            <option value="Gerät">Gerät</option>
-            <option value="OS">OS</option>
-            <option value="Software">Software</option>
-            <option value="Sonstiges">Sonstiges</option>
-          </select>
-        </div>
         <div class="col-md-12">
           <div class="position-relative form-group">
             <label>Versanddatum :</label>
             <input name="versanddatumExp" formControlName="versanddatumExp" id="versanddatumExp" placeholder="Versanddatum hier..." type="date"
               class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-12">
-          <label>Hilfe ?</label>
-          <div class="position-relative form-group">
-            <input name="hilfe" formControlName="hilfe" type="checkbox" class="form-control" />
           </div>
         </div>
       </div>
@@ -93,6 +77,9 @@
       <div *ngIf="data.freigabeVort">
         <div class="row">
           Utilisateur : {{ data.benutzerName }}
+        </div>
+        <div class="row" *ngIf="data.gerateTyp0 == 'Assistance'">
+          [Assistance]
         </div>
         <div class="row">
           <input type="button" value="valider" (click)="edit(data)" />

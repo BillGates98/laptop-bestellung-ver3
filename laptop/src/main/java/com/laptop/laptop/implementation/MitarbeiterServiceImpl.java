@@ -59,4 +59,10 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return this.MitarbeiterRepository.findByParentId(parentid);
 	}
 
+	@Override
+	public Mitarbeiter getByEmail(String email) {
+		// TODO Auto-generated method stub
+		return this.MitarbeiterRepository.getByEmail(email);
+	}
+
 }

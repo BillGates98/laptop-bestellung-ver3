@@ -106,6 +106,11 @@ export class StateComponent implements OnInit {
       alert('Formulaire invalide!');
       return;
     }
+
+    if (!this.active) {
+      alert('Selectionnez une demande');
+      return;
+    }
     this.dataService.put(this.active.id, this.buildData(this.f))
       .then(success => {
         if (this.f.freigabeVort) {
@@ -153,4 +158,12 @@ export class StateComponent implements OnInit {
     });
   }
 
+  setPrice(event): void {
+    for (const k of this.laptops) {
+      if (k && k.name === event.target.value) {
+        this.askForm.patchValue({preisVort: k.price});
+        return;
+      }
+    }
+  }
 }

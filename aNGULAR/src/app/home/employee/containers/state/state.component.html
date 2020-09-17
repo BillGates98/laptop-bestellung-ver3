@@ -3,17 +3,17 @@
   <div class="col-md-8">
       <div class="row" *ngFor="let data of datas" style="margin-top: 4%">
           <div class="col-md-8">
-            Demande : {{ data.begrundung }}
+            Demande : {{ data.bestellgrundIt }}
           </div>
           <div class="col-md-4">
             <div class="row">
-              <div class="col-md-6">
-                  <button class="btn btn-danger" *ngIf="!data.freigabeVort">Freigabe</button>
-                  <button class="btn btn-success" *ngIf="data.freigabeVort">Freigabe</button>
+              <div class="col-md-6" *ngIf="data.gerateTyp0 != 'Assistance'">
+                  <button class="btn btn-danger" *ngIf="!data.freigabeVort">Vortgesetz</button>
+                  <button class="btn btn-success" *ngIf="data.freigabeVort">Vortgesetz</button>
               </div>
               <div class="col-md-6">
-                  <button class="btn btn-danger" *ngIf="!data.hilfe">Hilfe</button>
-                  <button class="btn btn-success" *ngIf="data.hilfe">Hilfe</button>
+                  <button class="btn btn-danger" *ngIf="!data.versanddatumExp">Support</button>
+                  <button class="btn btn-success" *ngIf="data.versanddatumExp">Support</button>
               </div>
             </div>
           </div>

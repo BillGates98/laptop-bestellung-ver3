@@ -49,7 +49,7 @@ export class AskComponent implements OnInit {
         kostenstelleVort: [''],
         preisVort: [''],
         freigabeVort: [''],
-        usernameIt: [''],
+        usernameIt: [this.token.username],
         emailIt: [''],
         bestellgrundIt: [''],
         preisIt: [''],
@@ -64,7 +64,7 @@ export class AskComponent implements OnInit {
   }
 
   isValidForm(form): boolean {
-    const fields = ['benutzerName', 'email', 'begrundung', 'gerateTyp0'];
+    const fields = ['benutzerName', 'email', 'bestellgrundIt', 'gerateTyp0'];
     for (const f of fields) {
       if (form[f].status === 'INVALID') {
         return false;
@@ -79,6 +79,9 @@ export class AskComponent implements OnInit {
       if (k) {
         object[k] = form[k].value;
       }
+    }
+    if (form.gerateTyp0 === 'Assistance') {
+      object.freigabeVort = true;
     }
     return object;
   }
