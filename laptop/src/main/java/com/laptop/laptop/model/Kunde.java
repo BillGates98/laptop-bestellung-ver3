@@ -41,12 +41,14 @@ public  class Kunde
 	private String AbgabeBuchIt;
 	
 	// 5
-	private String versanddatumExp;
+	private String VersanddatumExp;
 	// private String BestellreferenzExp;
-	private Long buchhaltungExp;
+	private Long BuchhaltungExp;
+	
+	private String  BraucheHilfe;
 	
 	// 6 : send mail
-	private boolean hilfe;
+	private boolean Hilfe;
 	
 	public Kunde() {
 		super();
@@ -57,7 +59,7 @@ public  class Kunde
 			String nachNameVort, String rollenVort, String datumVort, String gerateTyp1Vort, String kostenstelleVort,
 			String preisVort, boolean freigabeVort, String usernameIt, String emailIt, String bestellgrundIt,
 			String preisIt, String bestellreferenzIt, String rechnungMitKostenstelleIt, String abgabeBuchIt,
-			String versanddatumExp, Long buchhaltungExp, boolean hilfe) {
+			String versanddatumExp, Long buchhaltungExp, boolean hilfe, String braucheHilfe) {
 		super();
 		this.id = id;
 		this.BenutzerName = benutzerName;
@@ -79,9 +81,10 @@ public  class Kunde
 		this.BestellreferenzIt = bestellreferenzIt;
 		this.RechnungMitKostenstelleIt = rechnungMitKostenstelleIt;
 		this.AbgabeBuchIt = abgabeBuchIt;
-		this.versanddatumExp = versanddatumExp;
-		this.buchhaltungExp = buchhaltungExp;
-		this.hilfe = hilfe;
+		this.VersanddatumExp = versanddatumExp;
+		this.BuchhaltungExp = buchhaltungExp;
+		this.Hilfe = hilfe;
+		this. BraucheHilfe = braucheHilfe;
 	}
 
 
@@ -286,34 +289,42 @@ public  class Kunde
 
 
 	public String getVersanddatumExp() {
-		return versanddatumExp;
+		return VersanddatumExp;
 	}
 
 
 	public void setVersanddatumExp(String versanddatumExp) {
-		this.versanddatumExp = versanddatumExp;
+		this.VersanddatumExp = versanddatumExp;
 	}
 
 
 	public Long getBuchhaltungExp() {
-		return buchhaltungExp;
+		return BuchhaltungExp;
 	}
 
 
 	public void setBuchhaltungExp(Long buchhaltungExp) {
-		this.buchhaltungExp = buchhaltungExp;
+		this.BuchhaltungExp = buchhaltungExp;
 	}
 
 
 	public boolean isHilfe() {
-		return hilfe;
+		return Hilfe;
 	}
 
 
 	public void setHilfe(boolean hilfe) {
-		this.hilfe = hilfe;
+		this.Hilfe = hilfe;
 	}
-		
+
+	public String getBraucheHilfe() {
+		return BraucheHilfe;
+	}
+
+	public void setBraucheHilfe(String braucheHilfe) {
+		BraucheHilfe = braucheHilfe;
+	}
+
 } //End Class Projet
 
 

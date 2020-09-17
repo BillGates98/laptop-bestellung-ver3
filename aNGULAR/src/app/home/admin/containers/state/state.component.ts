@@ -108,9 +108,11 @@ export class StateComponent implements OnInit {
     }
     this.dataService.put(this.active.id, this.buildData(this.f))
       .then(success => {
-        alert('Updated');
-        console.log(success);
+        if (this.f.freigabeVort) {
+          this.sendMail(success);
+        }
         this.fetchKundeChildren(this.user.id);
+        alert('Updated');
       }).catch(error => {
           alert('Une erreur est survenue');
       });
@@ -128,10 +130,26 @@ export class StateComponent implements OnInit {
   fetchKundeChildren(parentId): void {
     this.dataService.getKundeFromParentId(parentId).then(data => {
       console.log(data);
-      this.datas = data;
+      this.datas = data.reverse();
     }).catch(error => {
       console.log(error);
       alert('Error');
+    });
+  }
+
+  sendMail(kunde): void {
+    this.dataService.sendMail({
+      email: kunde.email,
+      object: 'Demandes!',
+      content: 'Demande accepted!'
+    }).then(data => {
+        console.log(data);
+        if (data.code === 'OK') {
+          alert('Le mail a été envoyé à ' + kunde.benutzerName);
+        }
+    }).catch(error => {
+      console.log(error);
+      alert('Le mail n\'a pas pu être envoyé');
     });
   }
 

@@ -1,8 +1,10 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-2"></div>
+  <div class="col-md-6">
     <form [formGroup]="askForm" (submit)="submit()">
       <div class="row">
         Vorname : {{ user.vorname }}, nachname : {{ user.nachname }}
+        <br/>
         Benutzername : {{ active?.benutzerName }}
       </div>
       <div class="col-md-12">
@@ -49,7 +51,7 @@
   <div class="col-md-4">
     <div *ngFor="let data of datas">
       <div class="row">
-        Donnée : {{ 'Hi' }}
+        Demande de reference {{ data.id }} : {{ data.benutzerName }}
       </div>
       <div class="row">
         <input type="button" value="valider" (click)="edit(data)" />

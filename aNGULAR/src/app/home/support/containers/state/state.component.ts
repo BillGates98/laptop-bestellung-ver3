@@ -19,7 +19,10 @@ export class StateComponent implements OnInit {
   askForm: FormGroup;
   token = null;
   active = null;
-  fields = ['id', 'datumVort', 'kostenstelleVort', 'gerateTyp1Vort', 'preisVort', 'freigabeVort'];
+  fields = ['id', 'usernameIt', 'emailIt', 'bestellgrundIt',
+            'preisIt', 'bestellreferenzIt', 'rechnungMitKostenstelleIt',
+            'abgabeBuchIt', 'braucheHilfe', 'versanddatumExp',
+            'buchhaltungExp', 'hilfe'];
 
   constructor(
     private authService: AuthService,
@@ -31,7 +34,7 @@ export class StateComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.getToken();
     this.initForm(this.secondInit({}, this.fields));
-    this.fetchKundeChildren(this.user.id);
+    this.fetchKundes();
     this.fetchLaptops();
   }
 
@@ -65,6 +68,7 @@ export class StateComponent implements OnInit {
         freigabeVort: [item.freigabeVort],
         usernameIt: [item.usernameIt],
         emailIt: [item.emailIt],
+        braucheHilfe: [item.braucheHilfe],
         bestellgrundIt: [item.bestellgrundIt],
         preisIt: [item.preisIt],
         bestellreferenzIt: [item.bestellreferenzIt],
@@ -110,7 +114,7 @@ export class StateComponent implements OnInit {
       .then(success => {
         alert('Updated');
         console.log(success);
-        this.fetchKundeChildren(this.user.id);
+        this.fetchKundes();
       }).catch(error => {
           alert('Une erreur est survenue');
       });
@@ -118,19 +122,17 @@ export class StateComponent implements OnInit {
 
   fetchLaptops(): void {
     this.dataService.getLaptops().then(data => {
-      console.log(data);
       this.laptops = data;
     }).catch(error => {
       console.log(error);
+      alert('Error');
     });
   }
 
-  fetchKundeChildren(parentId): void {
-    this.dataService.getKundeFromParentId(parentId).then(data => {
-      console.log(data);
-      this.datas = data;
+  fetchKundes(): void {
+    this.dataService.gets().then(data => {
+      this.datas = data.reverse();
     }).catch(error => {
-      console.log(error);
       alert('Error');
     });
   }
