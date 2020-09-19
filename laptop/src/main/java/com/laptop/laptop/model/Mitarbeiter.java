@@ -2,7 +2,9 @@ package com.laptop.laptop.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 
 @Entity
@@ -10,8 +12,9 @@ public  class Mitarbeiter
 { 
 	// Attributes
 	// Mitarbeiter : 1 
+	@TableGenerator(name = "Mitarbeiter_Gen", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", pkColumnValue = "Addr_Gen", initialValue = 9, allocationSize = 100)
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "Mitarbeiter_Gen")
 	private Long id;
 	private String username;
 	private String email;
@@ -21,7 +24,7 @@ public  class Mitarbeiter
 	private String rollen;
 	private String password;
 	private Long parentid;
-	
+
 	public Mitarbeiter() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -55,7 +55,8 @@ export class AskComponent implements OnInit {
         preisIt: [''],
         bestellreferenzIt: [''],
         rechnungMitKostenstelleIt: [''],
-        abgabeBuchIt: ['']
+        abgabeBuchIt: [''],
+        ok: ['']
     });
   }
 

@@ -64,6 +64,16 @@ public class MitarbeiterController {
 	  	return this.MitarbeiterService.findAll();
 	 }
 	 
+	 @GetMapping(value = "/service/mitarbeiter/parents")
+	 public List<Mitarbeiter> getOnlyParents(){
+	  	return this.MitarbeiterService.findParents();
+	 }
+	 
+	 @GetMapping(value = "/service/mitarbeiter/{parentid}/children")
+	 public List<Mitarbeiter> getChildrenFromParent(@PathVariable("parentid") Long parentid){
+	  	return this.MitarbeiterService.findByParentid(parentid);
+	 }
+	 
 	 @GetMapping(value = "/service/mitarbeiter/{email}/infos")
 	 public Mitarbeiter completeInfos(@PathVariable("email") String email){
 		 Mitarbeiter user = this.MitarbeiterService.getByEmail(email);

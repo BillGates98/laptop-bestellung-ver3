@@ -69,7 +69,8 @@ export class StateComponent implements OnInit {
         preisIt: [item.preisIt],
         bestellreferenzIt: [item.bestellreferenzIt],
         rechnungMitKostenstelleIt: [item.rechnungMitKostenstelleIt],
-        abgabeBuchIt: [item.abgabeBuchIt]
+        abgabeBuchIt: [item.abgabeBuchIt],
+        ok: ['']
     };
   }
 

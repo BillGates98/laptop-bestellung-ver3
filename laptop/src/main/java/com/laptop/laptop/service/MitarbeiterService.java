@@ -12,6 +12,7 @@ public interface MitarbeiterService {
 	Optional<Mitarbeiter> getById(Long id);
 	List<Mitarbeiter> findAll();
 	List<Mitarbeiter> findByParentid(Long parentid);
+	List<Mitarbeiter> findParents();
 	Mitarbeiter auth(String username, String password);
 	Mitarbeiter getByEmail(String email);
 }

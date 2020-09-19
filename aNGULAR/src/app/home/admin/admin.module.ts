@@ -4,11 +4,13 @@ import { AdminRoutingModule } from './admin.routing.module';
 import { IndexComponent } from './containers/index/index.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StateComponent } from './containers/state/state.component';
+import { UserComponent } from './containers/user/user.component';
 
 @NgModule({
   declarations: [
     IndexComponent,
-    StateComponent
+    StateComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,

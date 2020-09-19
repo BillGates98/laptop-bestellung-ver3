@@ -50,6 +50,8 @@ public  class Kunde
 	// 6 : send mail
 	private boolean Hilfe;
 	
+	private boolean ok;
+	
 	public Kunde() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -59,7 +61,7 @@ public  class Kunde
 			String nachNameVort, String rollenVort, String datumVort, String gerateTyp1Vort, String kostenstelleVort,
 			String preisVort, boolean freigabeVort, String usernameIt, String emailIt, String bestellgrundIt,
 			String preisIt, String bestellreferenzIt, String rechnungMitKostenstelleIt, String abgabeBuchIt,
-			String versanddatumExp, Long buchhaltungExp, boolean hilfe, String braucheHilfe) {
+			String versanddatumExp, Long buchhaltungExp, boolean hilfe, String braucheHilfe, boolean ok) {
 		super();
 		this.id = id;
 		this.BenutzerName = benutzerName;
@@ -85,6 +87,7 @@ public  class Kunde
 		this.BuchhaltungExp = buchhaltungExp;
 		this.Hilfe = hilfe;
 		this. BraucheHilfe = braucheHilfe;
+		this.ok = ok;
 	}
 
 
@@ -322,7 +325,15 @@ public  class Kunde
 	}
 
 	public void setBraucheHilfe(String braucheHilfe) {
-		BraucheHilfe = braucheHilfe;
+		this.BraucheHilfe = braucheHilfe;
+	}
+
+	public boolean isOk() {
+		return ok;
+	}
+
+	public void setOk(boolean ok) {
+		this.ok = ok;
 	}
 
 } //End Class Projet

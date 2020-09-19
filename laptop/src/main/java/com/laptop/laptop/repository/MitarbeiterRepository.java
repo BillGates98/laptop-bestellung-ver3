@@ -16,6 +16,9 @@ public interface MitarbeiterRepository extends JpaRepository<Mitarbeiter, Long> 
 	@Query("SELECT user FROM Mitarbeiter user WHERE user.parentid = :parentid")
 	List<Mitarbeiter> findByParentId(@Param("parentid") Long parentid);
 	
+	@Query("SELECT user FROM Mitarbeiter user WHERE user.parentid = null")
+	List<Mitarbeiter> findParents();
+	
 	@Query("SELECT user FROM Mitarbeiter user WHERE user.email = :email")
 	Mitarbeiter getByEmail(@Param("email") String email);
 }

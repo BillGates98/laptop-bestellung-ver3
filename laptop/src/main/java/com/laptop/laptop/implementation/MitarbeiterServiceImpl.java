@@ -65,4 +65,10 @@ public class MitarbeiterServiceImpl implements MitarbeiterService {
 		return this.MitarbeiterRepository.getByEmail(email);
 	}
 
+	@Override
+	public List<Mitarbeiter> findParents() {
+		// TODO Auto-generated method stub
+		return this.MitarbeiterRepository.findParents();
+	}
+
 }

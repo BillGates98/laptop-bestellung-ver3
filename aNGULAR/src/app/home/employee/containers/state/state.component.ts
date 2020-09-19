@@ -32,4 +32,17 @@ export class StateComponent implements OnInit {
     });
   }
 
+  confirmReception(data, value): void {
+    data.ok = value;
+    this.dataService.put(data.id, data)
+      .then(success => {
+        if (data.ok) {
+          this.fetchData();
+        }
+        alert('Confirmer !');
+      }).catch(error => {
+          alert('Une erreur est survenue');
+      });
+  }
+
 }
